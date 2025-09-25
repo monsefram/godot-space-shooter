@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://1f0oho4o51x"]
+
+[ext_resource type="Script" uid="uid://kk3m5fccl1c3" path="res://projectile.gd" id="1_qxf0c"]
+[ext_resource type="Texture2D" uid="uid://u31d0xkh7ybu" path="res://tank_bulletFly6.png" id="2_qxf0c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxf0c"]
+size = Vector2(10, 44)
+
+[node name="Projectile" type="Area2D"]
+script = ExtResource("1_qxf0c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.991981, 0.991, 0.99008, 1)
+texture_filter = 1
+position = Vector2(-3.8147e-06, -9.53674e-07)
+rotation = -1.5708
+scale = Vector2(0.222581, 0.25)
+texture = ExtResource("2_qxf0c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_qxf0c")
+debug_color = Color(0.178022, 0.385946, 0.489629, 0.42)

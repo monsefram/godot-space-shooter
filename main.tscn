@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://cj8vo4btecofb"]
+
+[ext_resource type="Script" uid="uid://dwitvvf5btp7m" path="res://player.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://c4pv2cpyyd4ys" path="res://main.gd" id="1_7mycd"]
+[ext_resource type="PackedScene" uid="uid://1f0oho4o51x" path="res://projectile.tscn" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://2xtoamxx2pqy" path="res://boid_spawner.gd" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://b6rxs4futeco2" path="res://zizi.png" id="4_7mycd"]
+[ext_resource type="PackedScene" uid="uid://bdy5883k082p7" path="res://boid.tscn" id="5_lquwl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(52, 64)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_7mycd")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_0xm2m")
+projectile_scene = ExtResource("2_h2yge")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(8, -34)
+scale = Vector2(3.53125, 2.48438)
+texture = ExtResource("4_7mycd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(2, -33)
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="BoidSpawner" type="Node2D" parent="."]
+script = ExtResource("4_1bvp3")
+boid_scene = ExtResource("5_lquwl")
